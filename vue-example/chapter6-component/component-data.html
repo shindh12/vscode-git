@@ -13,7 +13,7 @@
   <script type="text/javascript">
     Vue.component('time-component', {
       template : '#timeTemplate',
-    // 사용되는 컴포넌트들이 동일한 데이터를 참조하게 되므로 function으로 지정해둔다.
+    // 사용되는 컴포넌트들이 전부 동일한 객체를 참조하게 되므로 function으로 지정해둔다.
       data : function() { 
          return { nowTS : 0 };
       },
