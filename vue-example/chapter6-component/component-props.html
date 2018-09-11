@@ -16,7 +16,13 @@ Vue.component('list-component', {
     template : '#listTemplate',
     props : {
         message : { type:String, default:"안냐세염!" },
-        count : { type:Number, required:true }
+        count : { type:Number, required:true },
+        countries : {
+            type : Array,
+            default : function() {
+                return ['대한민국'];
+            }
+        }
     }
 })
 </script>
@@ -26,11 +32,11 @@ Vue.component('list-component', {
     <!-- attribute 형태로 props 전달하면 되겠군 -->
     <!-- 항상 kebob casing 형태로 props 사용한다 -->
     <ul>
-        <list-component message="Hello" v-bind:count="100"></list-component> <!-- 정적으로 전달하면 무조건 문자열로 전달 -->
+        <list-component message="Hello" v-bind:count="100" :countries="['미국', '호주', '영국']"></list-component> <!-- 정적으로 전달하면 무조건 문자열로 전달 -->
         <!-- <list-component :message="'Hello'" v-bind:count="100"></list-component> 
             v-bind 동적 바인딩 하려면 문자열이란걸 표시해주기 위해서 따옴표 추가-->
-        <list-component message="씬짜오" v-bind:count="21"></list-component> <!-- v-bind 하면 변수랑 매핑되는데 숫자로 시작하니까 알아서 값으로 들어감-->
-        <list-component message="니하오마"></list-component>
+        <list-component message="씬짜오" v-bind:count="21" :countries="['베트남']"></list-component> <!-- v-bind 하면 변수랑 매핑되는데 숫자로 시작하니까 알아서 값으로 들어감-->
+        <list-component message="니하오마" :countries="['중국', '대만']"></list-component>
         <list-component v-bind:count="100"></list-component>
     </ul>
 </div>
