@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>06-01</title>
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <template id="a">
+        <div>hello vue.js!!</div>
+    </template>
+    <!-- hello component 작성 -->
+  <script type="text/javascript">
+    Vue.component("hello", {
+        template : "#a"
+    })
+  </script>
+  <div id="app">
+      <!-- hello component 사용 -->
+    <hello></hello>
+    <hello></hello>
+    <hello></hello>
+  </div>
+  <script type="text/javascript">
+      new Vue({
+          el : "#app"
+      })
+  </script>
+</body>
+</html>
