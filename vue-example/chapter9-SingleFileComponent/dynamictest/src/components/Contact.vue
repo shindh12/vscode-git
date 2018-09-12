@@ -8,7 +8,7 @@
 <script>
 import Tree from './Tree';
 export default {
-  name : "about",
+  name : "contact",
   components : { Tree },
   data : function() {
     return {
