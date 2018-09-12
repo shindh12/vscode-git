@@ -18,3 +18,12 @@
  - eventbus를 이용한 상위 컴포넌트로 이벤트 emit 및 수신을 위한 on
  - 데이터 비동기 처리 (axios) 
  - Cross Origin 문제 해결을 위한 라우팅 처리 => /api 
+
+
+환경설정
+ - yarn add -D babel-cli@6.2.4 
+ - yarn add babel-preset-env 
+ - yarn add babel-preset-stage-2
+ - yarn add axios
+ - yarn add vuejs-paginate bootstrap@3.3.x
+ - yarn add es6-promise
