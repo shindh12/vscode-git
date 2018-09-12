@@ -7,11 +7,19 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import axios from 'axios';
 export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+  mounted : function () {
+    axios.get("http://sample.bmaster.kro.kr/contacts", {
+      params : { pageno:1, pagesize:5 }
+    })
+    .then((response)=> { 
+      console.log (response.data)
+    })
   }
 }
 </script>
