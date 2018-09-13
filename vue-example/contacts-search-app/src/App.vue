@@ -1,28 +1,14 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+        <search placeholder="두글자 이상 입력후 엔터!"></search>
+        <contact-list></contact-list>
+    </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
+<script type="text/javascript">
+import ContactList from './components/ContactList.vue';
+import Search from './components/Search.vue';
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+    name : 'app',
+    components : { Search, ContactList }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
