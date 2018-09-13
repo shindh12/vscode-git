@@ -19,7 +19,13 @@ export default {
             if(done) return { checked:true };
             else return { checked:false };
         },
-        ...mapMutations([Constant.DELETE_TODO, Constant.DONE_TOGGLE])
+        deleteTodo : function (payload) {
+            this.$store.dispatch(Constant.DELETE_TODO, payload);
+        },
+        doneToggle : function (payload) {
+            this.$store.dispatch(Constant.DONE_TOGGLE, payload);
+        }
+        // ...mapMutations([Constant.DELETE_TODO, Constant.DONE_TOGGLE])
     }
 }
 </script>
