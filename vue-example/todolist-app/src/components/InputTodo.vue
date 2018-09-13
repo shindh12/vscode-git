@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import eventBus from '../EventBus';
+import Constant from '../Constant.js';
 export default {
     name : "input-todo",
     data : function () {
@@ -13,7 +13,7 @@ export default {
     },
     methods : {
         addTodo : function () {
-            eventBus.$emit("add-todo", this.todo);
+            this.$store.commit(Constant.ADD_TODO, {todo:this.todo});
             this.todo = "";
         }
     }
