@@ -22,11 +22,11 @@ const store = new Vuex.Store({
                     { id:new Date().getTime(), todo: payload.todo, done:false });
             }
         },
-        [Constant.DELETE_TODO] : (state, payload) => {
+        [Constant.DONE_TOGGLE] : (state, payload) => {
             var index = state.todolist.findIndex((item)=>item.id === payload.id);
             state.todolist[index].done = !state.todolist[index].done;
         },
-        [Constant.DONE_TOGGLE] : (state, payload) => {
+        [Constant.DELETE_TODO] : (state, payload) => {
             var index = state.todolist.findIndex((item)=>item.id === payload.id);
             state.todolist.splice(index,1);
         }
