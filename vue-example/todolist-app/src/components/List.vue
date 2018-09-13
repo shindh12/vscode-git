@@ -9,7 +9,7 @@
     </ul>
 </template>
 <script>
-import eventBus from '../EventBus';
+import Constant from '../Constant.js';
 export default {
     name : "list",
     created : function () {
