@@ -1,31 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import axios from 'axios';
+import ContactList from "./components/ContactList";
+import AddContact from "./components/AddContact";
+import UpdateContact from "./components/UpdateContact";
+import UpatePhoto from "./components/UpatePhoto";
+import CONF from "./Config.js";
+import eventBus from "./EventBus.js";
+
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  name : "app",
+  components : { ContactList, AddContact, UpdateContact, UpatePhoto },
+  data : function () {
+    return {
+      currentView : null,
+      contact : { no:0, name:"", tel:"", address:"", photo:"" },
+      contactlist : {
+        pageno:1, pagesize: CONF.PAGESIZE, totalcount:0, contacts:[]
+      }
+    }
   },
-  mounted : function () {
-    axios.get("http://sample.bmaster.kro.kr/contacts", {
-      params : { pageno:1, pagesize:5 }
-    })
-    .then((response)=> { 
-      console.log (response.data)
-    })
+  mounted() {
+    
+  },
+  methods : {
+
   }
 }
 </script>
 
-<style>
-#app {
+<style scoped>
+#container {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
