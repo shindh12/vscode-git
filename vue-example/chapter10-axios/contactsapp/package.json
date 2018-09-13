@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "vue": "^2.5.17"
+    "bootstrap": "3.3.7",
+    "es6-promise": "^4.2.5",
+    "vue": "^2.5.17",
+    "vuejs-paginate": "1.9.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.2",
