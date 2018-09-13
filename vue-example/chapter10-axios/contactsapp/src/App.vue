@@ -13,13 +13,14 @@
 import ContactList from "./components/ContactList";
 import AddContact from "./components/AddContact";
 import UpdateContact from "./components/UpdateContact";
-import UpatePhoto from "./components/UpatePhoto";
+import UpdatePhoto from "./components/UpdatePhoto";
+import 'bootstrap/dist/css/bootstrap.css'
 import CONF from "./Config.js";
 import eventBus from "./EventBus.js";
 
 export default {
   name : "app",
-  components : { ContactList, AddContact, UpdateContact, UpatePhoto },
+  components : { ContactList, AddContact, UpdateContact, UpdatePhoto },
   data : function () {
     return {
       currentView : null,
