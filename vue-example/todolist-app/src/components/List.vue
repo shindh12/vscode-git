@@ -12,37 +12,21 @@
 import Constant from '../Constant.js';
 export default {
     name : "list",
-    created : function () {
-        eventBus.$on("add-todo", this.addTodo);
-    },
-    data : function () {
-        return {
-            todolist : [
-                { id:1, todo : "영화보기", done:false },
-                { id:2, todo : "주말 산책", done:true },
-                { id:3, todo : "ES6 학습", done:false },
-                { id:4, todo : "잠실 야구장", done:false },
-            ]
+    computed : {
+        todolist : function () {
+            return this.$store.state.todolist;
         }
-    }, 
+    },
     methods : {
         checked : function(done) {
             if(done) return { checked:true };
             else return { checked:false };
         },
-        addTodo : function(todo) {
-            if (todo !== "") {
-                this.todolist.push(
-                    { id:new Date().getTime(), todo : todo, done:false });
-            }
-        },
         doneToggle : function(id) {
-            var index = this.todolist.findIndex((item)=>item.id === id);
-            this.todolist[index].done = !this.todolist[index].done;
+            this.$store.commit(Constant.DONE_TOGGLE, {id:id});
         },
         deleteTodo : function(id) {
-            var index = this.todolist.findIndex((item)=>item.id === id);
-            this.todolist.splice(index,1);
+            this.$store.commit(Constant.DELETE_TODO, {id:id});
         }
     }
 }
