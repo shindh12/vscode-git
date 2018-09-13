@@ -4,12 +4,12 @@ axios + dynamic component + event bus
 
 구성
  - App.vue 
-   . ContactList.vue
-   . UpdateContact.vue
+   - ContactList.vue
+   - UpdateContact.vue
      - ContactForm.vue
-   . AddContact.vue
+   - AddContact.vue
      - ContactForm.vue
-   . UpdatePhoto.vue
+   - UpdatePhoto.vue
  - EventBus.js
 
 특징
