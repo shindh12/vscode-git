@@ -1,21 +1,8 @@
 # country-app
 
-## Project setup
-```
-yarn install
-```
+vuex 적용
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+구성
+- 버튼 컴포넌트
+- 리스트 컴포넌트
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
