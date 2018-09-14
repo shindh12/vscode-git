@@ -5,12 +5,8 @@ axios + dynamic component + vuex
 구성
  - App.vue 
    - ContactList.vue
-   - UpdateContact.vue
-     - ContactForm.vue
-   - AddContact.vue
-     - ContactForm.vue
+   - ContactForm.vue
    - UpdatePhoto.vue
- - EventBus.js
 
 특징
  - 싱글 파일 컴포넌트 : 동적 컴포넌트 적용
