@@ -22,10 +22,11 @@ import About from './components/About.vue';
 import Contacts from './components/Contacts.vue';
 import ContactByNo from './components/ContactByNo.vue';
 import VueRouter from 'vue-router';
+import NotFound from './components/NotFound';
 
 const router = new VueRouter({
   mode : "history",
-  routes : [
+  routes : [ // route 경로는 순서대로 찾는다.
     { path:'/', component: Home },
     { path:'/home', name:'home', component: Home },
     { path:'/about', name:'about', component: About },
@@ -35,17 +36,11 @@ const router = new VueRouter({
       name:'contacts', 
       children : [
         {
-          path:':no', name:'contactsbyno', component: ContactByNo,
-          beforeEnter : (to, from, next) => {
-            if(from.path.startsWith("/contacts")) {
-              next();
-            } else {
-              next({ name:'home' });
-            }
-          }
+          path:':no', name:'contactsbyno', component: ContactByNo, props: true
          } 
-        ]
-      }
+      ]
+    },
+    { path : '*', component : NotFound}
   ]
 })
 export default {
