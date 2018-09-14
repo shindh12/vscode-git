@@ -34,19 +34,11 @@
 </template>
 
 <script>
-import eventBus from '../EventBus.js';
+import Constant from '../Constant.js';
+import { mapState } from 'vuex';
 
 export default {
     name : "contactForm",
-    props : {
-        mode : { type:String, default:'add' },
-        contact : {
-            type : Object,
-            default : function () {
-                return { no:'', name:'', tel:'', address:'', photo:'' }
-            }
-        }
-    },
     mounted : function () {
         this.$refs.name.focus()
     },
@@ -58,18 +50,23 @@ export default {
         headingText : function () {
             if (this.mode != 'update') return '새로운 연락처 추가';
             else return '연락처 변경';
-        }
+        },
+        ...mapState (['mode', 'contact'])
     },
     methods : {
         submitEvent : function () {
             if (this.mode == "update") {
-                eventBus.$emit ("updateSubmit", this.contact);
+                this.$store.dispatch (Constant.UPDATE_CONTACT); 
+                // contact는 잠깐 입력받을 값이기 때문에 양방향으로 ㄱ -> 엄격하게 단방향을 고집할 필요는 없음
+                // eventBus.$emit ("updateSubmit", this.contact);
             } else {
-                eventBus.$emit ("addSubmit", this.contact);
+                this.$store.dispatch (Constant.ADD_CONTACT);
+                // eventBus.$emit ("addSubmit", this.contact);
             }
         },
         cancelEvent : function () {
-            eventBus.$emit ("cancel");
+            this.$store.dispatch (Constant.CANCEL_FORM);
+            // eventBus.$emit ("cancel");
         }
     }
 }

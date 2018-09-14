@@ -5,7 +5,7 @@
          <p>(Dynamic Component + Vuex + Axios) </p>
       </div>
       <component :is="currentView"></component>
-      <contactList :contactlist="contactlist"></contactList>
+      <contactList></contactList>
   </div>
 </template>
 

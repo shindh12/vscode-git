@@ -43,14 +43,15 @@
 </template>
 
 <script>
-import eventBus from '../EventBus';
+import Constant from '../Constant.js';
 import Paginate from 'vuejs-paginate';
+import { mapState } from 'vuex';
 
 export default {
     name : "contactList",
     components : { Paginate },
-    props : [ 'contactlist' ],
     computed : {
+        ...mapState(['contactlist']),
         totalpage : function () {
             return Math.floor(
                 (this.contactlist.totalcount-1) / this.contactlist.pagesize) + 1;
@@ -59,25 +60,33 @@ export default {
     watch : {
         ['contactlist.pageno'] : function () {
             this.$refs.pagebuttons.selected = this.contactlist.pageno-1;
-        } // paginate 결함을 위해 real dom 접근 
+        }
+    },
+    mounted : function () {
+        this.$store.dispatch(Constant.FETCH_CONTACTS, { pageno:1 })
     },
     methods : {
         pageChanged : function (page) {
-            eventBus.$emit ("pageChanged", page);
+            this.$store.dispatch(Constant.FETCH_CONTACTS, { pageno:page })
+            // eventBus.$emit ("pageChanged", page);
         },
         addContact : function () {
-            eventBus.$emit ("addContactForm");
+            this.$store.dispatch(Constant.ADD_CONTACT_FORM);
+            // eventBus.$emit ("addContactForm");
         },
         editContact : function (no) {
-            eventBus.$emit ("editContactForm", no);
+            this.$store.dispatch(Constant.EDIT_CONTACT_FORM, {no:no});
+            // eventBus.$emit ("editContactForm", no);
         },
         deleteContact : function (no) {
             if (confirm("정말로 삭제하시겠습니까?") == true) {
-                eventBus.$emit ("deleteContact", no);
+                this.$store.dispatch(Constant.DELETE_CONTACT, { no:no });
+                // eventBus.$emit ("deleteContact", no);
             }
         },
         editPhoto : function (no) {
-            eventBus.$emit ("editPhoto", no);
+            this.$store.dispatch(Constant.EDIT_PHOTO_FORM, { no:no })
+            // eventBus.$emit ("editPhoto", no);
         }
     }
 }
