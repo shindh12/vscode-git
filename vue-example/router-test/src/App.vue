@@ -24,6 +24,7 @@ import ContactByNo from './components/ContactByNo.vue';
 import VueRouter from 'vue-router';
 
 const router = new VueRouter({
+  mode : "history",
   routes : [
     { path:'/', component: Home },
     { path:'/home', name:'home', component: Home },
