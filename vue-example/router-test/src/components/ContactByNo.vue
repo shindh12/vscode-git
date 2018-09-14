@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>연락처 상세</h1>
+    <hr class="divider" />
     <div >
         <table class="detail table table-bordered">
             <tbody>
@@ -39,10 +39,15 @@ export default {
     created : function() {
         this.no = this.$route.params.no;
     },
+    watch : {
+        '$route' : function (to) {
+            this.no = to.params.no;
+        }
+    },
     computed : {
         contact : function() {
             var no = this.no;
-            var arr = this.contacts.filter(function(item, index) {
+            var arr = this.contacts.filter(function(item) {
                 return item.no == no;
             });
             if (arr.length == 1)   return arr[0];
