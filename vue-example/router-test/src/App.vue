@@ -24,6 +24,9 @@ import ContactByNo from './components/ContactByNo.vue';
 import VueRouter from 'vue-router';
 import NotFound from './components/NotFound';
 
+function connectToProps (route) {
+  return { no : route.params.no, path : route.path };
+}
 const router = new VueRouter({
   mode : "history",
   routes : [ // route 경로는 순서대로 찾는다.
@@ -36,7 +39,7 @@ const router = new VueRouter({
       name:'contacts', 
       children : [
         {
-          path:':no', name:'contactsbyno', component: ContactByNo, props: true
+          path:':no', name:'contactsbyno', component: ContactByNo, props: connectToProps
          } 
       ]
     },
