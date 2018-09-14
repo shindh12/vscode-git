@@ -3,7 +3,12 @@
     <h1>연락처</h1>
     <div class="wrapper">
         <div class="box" v-for="c in contacts" :key="c.no">
-            <router-link v-bind:to="'/contacts/'+c.no">{{c.name}}</router-link>
+            <span @click="navigate(c.no)" style='cursor:pointer'>
+                [ {{c.name}} ]
+            </span>
+            <!-- <router-link v-bind:to="{name:'contactsbyno', params: {no:c.no}}">
+                {{c.name}}
+            </router-link> -->
         </div>
     </div>
     <router-view></router-view>
@@ -16,6 +21,16 @@ export default {
     name: "contact",
     data : function () {
         return { contacts:contactlist.contacts };
+    }, 
+    methods : {
+        navigate(no) {
+            if(confirm('상세정보 볼까요?')) {
+                 this.$router.push( {name : 'contactsbyno', params : {no:no}},
+                 function () {
+                     console.log('굿');
+                 })
+            }
+        }
     }
 }
 </script>

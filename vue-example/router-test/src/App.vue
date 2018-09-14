@@ -4,9 +4,9 @@
     <h1 class="headerText">(주)OpenSG</h1>
     <nav>
       <ul>
-        <li><router-link to="/home">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/contacts">Contacts</router-link></li>
+        <li><router-link :to="{ name:'home' }">Home</router-link></li>
+        <li><router-link :to="{ name:'about' }">About</router-link></li>
+        <li><router-link :to="{ name:'contacts' }">Contacts</router-link></li>
       </ul>
     </nav>
   </div>
@@ -26,13 +26,14 @@ import VueRouter from 'vue-router';
 const router = new VueRouter({
   routes : [
     { path:'/', component: Home },
-    { path:'/home', component: Home },
-    { path:'/about', component: About },
+    { path:'/home', name:'home', component: Home },
+    { path:'/about', name:'about', component: About },
     { 
       path:'/contacts', 
       component: Contacts,
+      name:'contacts', 
       children : [
-        {path:':no', component: ContactByNo } 
+        {path:':no', name:'contactsbyno', component: ContactByNo } 
         ]
       }
   ]
