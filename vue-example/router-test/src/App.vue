@@ -36,7 +36,7 @@ const router = new VueRouter({
         {
           path:':no', name:'contactsbyno', component: ContactByNo,
           beforeEnter : (to, from, next) => {
-            if(from.path.startsWith("contacts")) {
+            if(from.path.startsWith("/contacts")) {
               next();
             } else {
               next({ name:'home' });
