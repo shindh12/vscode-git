@@ -33,7 +33,16 @@ const router = new VueRouter({
       component: Contacts,
       name:'contacts', 
       children : [
-        {path:':no', name:'contactsbyno', component: ContactByNo } 
+        {
+          path:':no', name:'contactsbyno', component: ContactByNo,
+          beforeEnter : (to, from, next) => {
+            if(from.path.startsWith("contacts")) {
+              next();
+            } else {
+              next({ name:'home' });
+            }
+          }
+         } 
         ]
       }
   ]
