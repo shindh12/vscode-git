@@ -1,21 +1,5 @@
-# router-test
+# vue-router 테스트 예제
 
-## Project setup
-```
-yarn install
-```
+vue router 기본 구성 테스트 - vue-router 패키지만 설치 후 페이지 구성해보기
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
+yarn add vue-router bootstrap@3.3.x
